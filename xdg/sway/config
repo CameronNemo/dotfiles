@@ -14,6 +14,8 @@ set $term pantheon-terminal
 set $menu rofi -show drun
 set $www  epiphany
 set $lock swaylock
+set $luz  pkexec /usr/bin/light 
+set $amix amixer set Master
 
 ### Output configuration
 output * bg /usr/share/backgrounds/default fill
@@ -48,6 +50,11 @@ output * bg /usr/share/backgrounds/default fill
     # drag   -> $mod + left mouse
     # resize -> $mod + right mouse
     floating_modifier $mod normal
+    bindsym XF86MonBrightnessDown exec $luz -U 8
+    bindsym XF86MonBrightnessUp   exec $luz -A 8
+    bindsym XF86AudioRaiseVolume  exec $amix 8%+
+    bindsym XF86AudioLowerVolume  exec $amix 8%-
+    bindsym XF86AudioMute         exec $amix toggle
 #
 # Moving around:
 #
