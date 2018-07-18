@@ -10,9 +10,8 @@ function usage() {
 }
 
 test "$?" -le "1" || usage
-test -z "$1" || test "$1" = "-i" && import=1 || usage
 
-if test "$import" = "1"; then
+if test "$1" = "-i"; then
 	str="$XDG_CONFIG_HOME/file file"
 else
 	str="file $XDG_CONFIG_HOME/file"

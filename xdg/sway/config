@@ -17,21 +17,12 @@ set $lock swaylock
 set $luz  pkexec /usr/bin/light 
 set $amix amixer set Master
 
-### Output configuration
+### Input / Output
 output * bg /usr/share/backgrounds/default fill
-### Input configuration
-#
-# Example configuration:
-#
-#   input "2:14:SynPS/2_Synaptics_TouchPad" {
-#       dwt enabled
-#       tap enabled
-#       natural_scroll enabled
-#       middle_emulation enabled
-#   }
-#
-# You can get the names of your inputs by running: swaymsg -t get_inputs
-# Read `man 5 sway-input` for more information about this section.
+input "2:7:SynPS/2_Synaptics_TouchPad" {
+    tap enabled
+    natural_scroll enabled
+}
 
 ### Key bindings
 #
