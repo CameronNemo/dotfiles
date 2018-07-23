@@ -10,7 +10,7 @@ set $down j
 set $up k
 set $right l
 # apps
-set $term pantheon-terminal
+set $term io.elementary.terminal
 set $menu rofi -show drun
 set $www  epiphany
 set $lock swaylock
