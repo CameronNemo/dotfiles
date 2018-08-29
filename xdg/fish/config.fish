@@ -6,9 +6,9 @@ alias xup='sudo xbps-install -Suv'
 
 if test "$XDG_VTNR" = "1"; and test -z "$DISPLAY"; and test -z "$WAYLAND_DISPLAY";
 	export DESKTOP_SESSION="sway"
-	exec upstart --user
+	exec upstart --user 1>>~/.cache/upstart.log 2>>&1
 end
 
 if test -x /usr/bin/fortune; and test -n "$PROMPT_COMMAND";
-	/usr/bin/fortune
+	#/usr/bin/fortune
 end

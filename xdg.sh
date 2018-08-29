@@ -4,7 +4,7 @@ set -e
 
 import=0
 
-function usage() {
+usage() {
 	echo "Usage: $(basename $0) [-i]"
 	exit 1
 }

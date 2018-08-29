@@ -10,12 +10,12 @@ set $down j
 set $up k
 set $right l
 # apps
-set $term io.elementary.terminal
-set $menu rofi -show drun
-set $www  epiphany
-set $lock swaylock
-set $luz  pkexec /usr/bin/light 
-set $amix amixer set Master
+set $term exec io.elementary.terminal
+set $menu exec env LANG=C rofi -modi drun -show drun
+set $www  exec firefox
+set $lock exec swaylock -i /usr/share/backgrounds/default
+set $luz  exec brillo
+set $amix exec amixer set Master
 
 ### Input / Output
 output * bg /usr/share/backgrounds/default fill
@@ -41,8 +41,8 @@ input "2:7:SynPS/2_Synaptics_TouchPad" {
     # drag   -> $mod + left mouse
     # resize -> $mod + right mouse
     floating_modifier $mod normal
-    bindsym XF86MonBrightnessDown exec $luz -U 8
-    bindsym XF86MonBrightnessUp   exec $luz -A 8
+    bindsym XF86MonBrightnessDown exec $luz -U 6
+    bindsym XF86MonBrightnessUp   exec $luz -A 6
     bindsym XF86AudioRaiseVolume  exec $amix 8%+
     bindsym XF86AudioLowerVolume  exec $amix 8%-
     bindsym XF86AudioMute         exec $amix toggle
@@ -142,7 +142,8 @@ bindsym $alt+r mode "resize"
 #
 # Read `man 5 sway-bar` for more information about this section.
 bar {
-    position top
+    position bottom
+    status_command while :; do echo $(date +'%Y-%m-%d %k:%M') $(upower -i /org/freedesktop/UPower/devices/battery_BAT0 | awk '/percentage/ { print $2 }'); sleep 15; done
     colors {
         statusline #ffffff
         background #323232
